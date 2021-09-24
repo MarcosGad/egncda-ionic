@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="white" defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="back-title">
+      Register
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="net == 'on'">
+    
+  <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+
+    <ion-item>
+      <ion-input formControlName="first_name" type="text" placeholder="Your Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input formControlName="phone" type="number" min="-100" max="100" placeholder="Your Phone"></ion-input>
+    </ion-item>
+
+     <ion-item>
+       <ion-input formControlName="email" type="email" placeholder="Your Email"></ion-input>
+     </ion-item>
+
+     <ion-item>
+      <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input formControlName="c_password" type="password" placeholder="Confirm Password"></ion-input>
+    </ion-item>
+
+     <ion-row>
+       <ion-col>
+         <ion-button type="submit" [disabled]="ionicForm.invalid" expand="block" class="cus-btn">Register</ion-button>
+       </ion-col>
+     </ion-row>
+   </form>
+  </div>
+
+  <div *ngIf="net == 'off'">
+     <img src="../../assets/img/net.png" class="net">
+  </div>
+</ion-content>

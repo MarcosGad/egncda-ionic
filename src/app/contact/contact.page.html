@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="white" defaultHref="/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="back-title">
+      Contact Us
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="net == 'on'">
+    <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+      <ion-item>
+        <ion-input formControlName="name" type="name" placeholder="Your Name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="email" type="email" placeholder="Your Email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-textarea formControlName="message" rows="6" cols="20" placeholder="Enter Message here..."></ion-textarea>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" [disabled]="ionicForm.invalid" expand="block" class="cus-btn">Send</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+
+  <div *ngIf="net == 'off'">
+      <img src="../../assets/img/net.png" class="net">
+  </div>
+
+</ion-content>

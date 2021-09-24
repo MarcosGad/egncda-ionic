@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="white" defaultHref="/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="back-title">
+      Social
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div *ngIf="net == 'on'">
+    <div class="animated fadeInUp delay-0.5s">
+       <div class="page-div">
+        <img class="img-home" src="../../assets/img/6666.jpg">
+        <p class="parent-icon-two"><i class="fas fa-newspaper"></i></p>
+       </div>
+       <p class="title-images animated fadeInUp delay-0.5s">Syndicate news</p>
+    </div>
+
+    <div class="animated fadeInUp delay-0.5s"> 
+      <div class="page-div animated fadeInUp delay-0.5s">
+        <img class="img-home" src="../../assets/img/1111.jpg">
+        <p class="parent-icon-two icon-cus"><i class="fas fa-futbol"></i></p>
+      </div>
+      <p class="title-images animated fadeInUp delay-0.5s">Sports</p>
+    </div>
+
+    <div class="animated fadeInUp delay-0.5s"> 
+      <div class="page-div animated fadeInUp delay-0.5s">
+        <img class="img-home" src="../../assets/img/2222.jpg">
+        <p class="parent-icon-two icon-cus"><i class="fas fa-newspaper"></i></p>
+      </div>
+      <p class="title-images animated fadeInUp delay-0.5s">News</p>
+    </div>
+
+
+  </div>
+
+  <div *ngIf="net == 'off'">
+     <img src="../../assets/img/net.png" class="net">
+  </div>
+
+</ion-content>

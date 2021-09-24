@@ -1,0 +1,137 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="white" defaultHref="/medical"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="back-title">
+      Courses Registration
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="net == 'on'">
+  <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+
+    <ion-item>
+      <ion-input formControlName="first_name" type="text" placeholder="Your First Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input formControlName="middle_name" type="text" placeholder="Your Middle Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input formControlName="last_name" type="text" placeholder="Your Last Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input formControlName="mr_mrs" type="text" placeholder="Mr/Mrs"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input formControlName="dr" type="text" placeholder="Dr"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input formControlName="prof" type="text" placeholder="Prof"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input formControlName="nationality" type="text" placeholder="Nationality"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input formControlName="passport" type="text" placeholder="Passport"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input formControlName="affiliation" type="text" placeholder="Affiliation"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input formControlName="mobile_no" type="text" placeholder="Mobile No"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input formControlName="email" type="email" placeholder="E-Mail Address"></ion-input>
+    </ion-item>
+
+    <ion-list>
+      <ion-radio-group formControlName="type_of_attendance">
+        <ion-list-header>
+          <ion-label>type of attendance</ion-label>
+        </ion-list-header>
+    
+        <ion-item>
+          <ion-label>Poster presentation</ion-label>
+          <ion-radio slot="start" value="Poster Presentation"></ion-radio>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label>Oral Presentation (Short paper 15 Minutes)</ion-label>
+          <ion-radio slot="start" value="Oral Presentation (Short paper 15 Minutes)"></ion-radio>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label>Regular talk (Long paper 25 Minutes)</ion-label>
+          <ion-radio slot="start" value="Regular talk (Long paper 25 Minutes)"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Review Talk (Long paper 40 Minutes)</ion-label>
+          <ion-radio slot="start" value="Review Talk (Long paper 40 Minutes)"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <ion-list>
+      <ion-radio-group formControlName="type_of_contribution_submitted">
+        <ion-list-header>
+          <ion-label>Type of Attendance</ion-label>
+        </ion-list-header>
+    
+        <ion-item>
+          <ion-label>Participant</ion-label>
+          <ion-radio slot="start" value="Participant"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <ion-item>
+      <ion-textarea formControlName="title_of_the_contribution"  rows="4" cols="20" placeholder="Title of the Contribution"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-input formControlName="conference_fee" type="text" placeholder="Conference Fee"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input formControlName="conference_dinner" type="text" placeholder="Conference Dinner"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input formControlName="total_amount" type="text" placeholder="Total Amount"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input formControlName="money_order_issued_on" type="text" placeholder="Money Order issued on"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input formControlName="money_order_issued_to" type="text" placeholder="Money order issued to"></ion-input>
+    </ion-item>
+
+    
+     <ion-row>
+       <ion-col>
+         <ion-button type="submit" [disabled]="ionicForm.invalid" expand="block" class="cus-btn">Save</ion-button>
+       </ion-col>
+     </ion-row>
+   </form>
+  </div>
+
+  <div *ngIf="net == 'off'">
+     <img src="../../assets/img/net.png" class="net">
+  </div>
+</ion-content>

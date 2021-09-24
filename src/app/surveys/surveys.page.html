@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="white" defaultHref></ion-back-button>
+    </ion-buttons>
+    <ion-title class="back-title">
+      Surveys
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="net == 'on'">
+
+  <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate *ngIf="questions" >
+
+    <p class="question-title">{{title}}</p>
+
+    <div formArrayName="answers">
+          <ion-list *ngFor="let question of questions; index as i ">
+            <ion-radio-group [formControlName]="i">
+              <ion-list-header>
+                <ion-label>{{question.question}}</ion-label>
+              </ion-list-header>
+          
+              <ion-item *ngFor="let answer of question.answers;let a = index">
+                <ion-label>{{answer.answer}}</ion-label>
+                <ion-radio slot="start" value="{{a + 1}}"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+    </div>
+    
+     <ion-row>
+       <ion-col>
+         <ion-button type="submit" [disabled]="ionicForm.invalid" expand="block" class="cus-btn">Save</ion-button>
+       </ion-col>
+     </ion-row>
+   </form>
+
+  </div>
+
+  <div *ngIf="net == 'off'">
+     <img src="../../assets/img/net.png" class="net">
+  </div>
+
+</ion-content>

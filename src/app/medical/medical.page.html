@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="white" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="back-title">
+      medical
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="Refresh" refreshingSpinner="lines-small">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="net == 'on'">
+    <div *ngFor="let data of page"class="page-div animated bounceInUp delay-0.5s" routerLink="/{{data.name |  slugify}}">
+        <img class="img" src="../../assets/img/{{data.img}}">
+        <p class="parent-icon-two"> <i class="fas {{data.icon}}"></i></p>
+        <p class="title-images">{{data.name}}</p>
+    </div>
+
+  <div *ngIf="showS" class="page-div animated bounceInUp delay-0.5s" routerLink="/certificate-miscellaneous">
+      <img class="img" src="../../assets/img/Miscellaneous.png">
+      <p class="parent-icon-two"> <i class="fas fa-user-md"></i></p>
+      <p class="title-images">Miscellaneous</p>
+  </div>
+
+  </div>
+
+  <div *ngIf="net == 'off'">
+     <img src="../../assets/img/net.png" class="net">
+  </div>
+</ion-content>
+
+
+

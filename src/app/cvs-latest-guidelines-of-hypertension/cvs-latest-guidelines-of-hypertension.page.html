@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="white" defaultHref="/cvs-curriculum"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="back-title">
+      Cvs Latest Guidelines Of Hypertension
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="Refresh" refreshingSpinner="lines-small">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngIf="net == 'on'">
+  <div *ngFor="let data of page" class="page-div animated bounceInUp delay-0.5s">
+
+      <div *ngIf="data.name_book;else el">
+          <img class="img-book" src="https://egncda.com/{{data.photo_book}}">
+          <p class="title">{{data.name_book}}</p>
+          <p class="p-btn">
+            <ion-button class="link-down" (click)="openLink(data.pdf_book)">
+              Download
+            </ion-button>
+            <span *ngIf="data.pdf_book">
+             <ion-button class="link-down" (click)="openView(data.pdf_book)">
+                View
+              </ion-button>
+          </span>
+        </p>
+      </div>
+
+      <ng-template #el>
+        <iframe width="100%" height="315" [src]="data.desc | safe" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </ng-template>
+
+  </div>
+</div>
+
+<div *ngIf="net == 'off'">
+   <img src="../../assets/img/net.png" class="net">
+</div>
+
+
+</ion-content>

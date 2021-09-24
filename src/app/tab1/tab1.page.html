@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Egncda
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="net == 'on'">
+       <div>
+        <img src="../../assets/img/logo-final.png" class="logo-img" height="100px">
+      </div>
+        <div class="div-slider">
+          <ion-slides loop="true" pager="true" [options]="slideOpts">
+            <ion-slide *ngFor="let data of page">
+              <img src="https://egncda.com/{{data.photo}}">
+            </ion-slide>
+          </ion-slides>
+        </div>
+
+          <div class="animated bounceInDown delay-0.5s login">
+            <ion-row>
+              <ion-col (click)="openLoginPPage()" *ngIf="userType == 'null' || userType == 'patient'">
+                  <img src="../../assets/img/pola-2.png">
+                  <h5>Patient</h5>
+              </ion-col>
+              <ion-col (click)="openLoginPage()" *ngIf="userType == 'null' || userType == 'doc'">
+                  <img src="../../assets/img/pola-1.png">
+                  <h5>Doctor(HCP)</h5>  
+              </ion-col>
+            </ion-row>
+          </div>
+
+          <ion-button expand="block"
+            fill="outline"
+            routerLink="/certificate" 
+            class="cus-btn btn-certificate" *ngIf="userType == 'doc'">
+            Beta NCD Program
+          </ion-button>
+
+          <ion-button expand="block"
+            fill="outline"
+            routerLink="/qandan" 
+            class="cus-btn btn-certificate" *ngIf="userType == 'doc'">
+            Q And A
+          </ion-button>
+
+  </div>
+
+  <div *ngIf="net == 'off'">
+     <img src="../../assets/img/net.png" class="net">
+  </div>
+
+  
+</ion-content>

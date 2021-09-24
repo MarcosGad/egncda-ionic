@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="white" defaultHref="/oncology-basic-resources"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="back-title">
+      Oncology Curriculum
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+  
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="Refresh" refreshingSpinner="lines-small">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="net == 'on'">
+    <ion-card *ngFor="let data of page" class="page-div-cat animated bounceInUp delay-0.5s" routerLink="/oncology-{{data.name | slugify}}">
+        <p class="book-mange"><i class="fas {{data.icon}}"></i></p>
+        <hr>
+        <p class="title">{{data.name}}</p>
+    </ion-card>
+
+    
+  </div>
+
+  <img src="../../assets/img/Pfizer.svg.png" class="img-logo-page animated flipInX delay-0.5s">
+
+  <div *ngIf="net == 'off'">
+     <img src="../../assets/img/net.png" class="net">
+  </div>
+
+</ion-content>

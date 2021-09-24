@@ -1,0 +1,61 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="white" defaultHref="/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="back-title">
+      Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="Refresh" refreshingSpinner="lines-small">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngIf="net == 'on' && !cash">
+
+  
+    <ion-list>
+      <form novalidate [formGroup]="user">
+
+        <ion-item>
+          <ion-input type="text" formControlName="first_name" placeholder="Your Name" [(ngModel)]="userData.first_name"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-input type="email" formControlName="email" placeholder="Your Email" readonly [(ngModel)]="userData.email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="text" formControlName="phone" placeholder="Your Phone" [(ngModel)]="userData.phone"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-input type="password" formControlName="password" placeholder="Old Password" [(ngModel)]="userData.password"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input [disabled]="!userData.password" type="password" formControlName="new_password" placeholder="New Password" [(ngModel)]="userData.new_password"></ion-input>
+        </ion-item>
+    
+        <ion-button expand="block" class="cus-btn profile-btn" [disabled]="user.invalid" [hidden]="userData.password && !userData.new_password" (click)="edit()">Update</ion-button>
+
+      </form>
+  </ion-list>
+
+    <ion-button (click)="logout()" expand="block" color="danger" class="cus-btn profile-btn">
+      <ion-icon slot="start" name="log-out-outline"></ion-icon>
+      Logout
+    </ion-button>
+
+  </div>
+  <div *ngIf="net == 'off' && !cash">
+    <img src="../../assets/img/net.png" class="net">
+  </div>
+
+</ion-content>
+

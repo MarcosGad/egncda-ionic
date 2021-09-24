@@ -1,0 +1,337 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+/*
+#283290
+rgba(32, 211, 73, 1)
+*/
+
+//slider
+.swiper-pagination-bullet-active{
+    background: #0ac5ce;
+}
+.div-slider{
+    position: relative;
+}
+.btn-slider{
+  position: absolute;
+  position: absolute;
+  top: 50%;
+  font-size: 11px;
+  left: 25%;
+  z-index: 99;
+  --background: #035079;
+}
+
+ion-toolbar{
+    --background: #0ac5ce;
+    color: #fff;
+    padding: 0;
+}
+
+ion-toolbar.ios{
+    --background: #0ac5ce;
+}
+
+.cus-btn{
+    --background: #035079;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    --border-color: #035079;
+    --color: #fff;
+    --color-focused: #035079;
+    --color-hover: #fff;
+    --background-hover: #035079;
+}
+.cus-btn-line{
+    margin-bottom: 15px;
+    margin-top: 10px;
+    --border-color: #035079;
+    --color: #035079;
+    --color-focused: #035079;
+}
+ion-loading{
+    --spinner-color: #0ac5ce !important
+}
+
+.loading-wrapper.sc-ion-loading-md{
+    background: none;
+    box-shadow: none;
+}
+
+.img-logo-page{
+    width: 50%;
+    margin: auto;
+    display: block;
+    margin-top: 26px;
+    margin-bottom: 25px
+}
+
+.title{
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+hr{
+    width: 60px;
+    margin: auto !important;
+    display: block !important;
+    margin-top: 20px !important;
+    border-top: 3px solid #0ac5ce;
+}
+
+.page-div-cat{
+    border-bottom:5px solid #0ac5ce;
+}
+
+ion-tab-button {
+    --color-selected: #fff;
+    --ripple-color: #035079;
+    --color: #035079;
+    --background: #0ac5ce;	
+    font-size: 12px !important;
+}
+
+ion-tab-bar{
+    height: 51px;
+}
+.back-title{
+    font-size: 15px;
+    padding: 0;
+}
+
+.img{
+    display: block;
+    margin: auto;
+}
+
+.page-div{
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.book-mange{
+    font-size: 27px;
+    display: table;
+    margin: auto;
+    margin-top: 10px;
+    color: #0ac5ce;
+}
+
+.img-book{
+    width: 70%;
+    margin: auto;
+    display: block;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+.link-down{
+    --background: #0ac5ce;
+    --border-color: #0ac5ce;
+    --color: #fff;
+    --color-focused: #0ac5ce;
+    --color-hover: #fff;
+    --background-hover: #0ac5ce;
+}
+.p-btn{
+    text-align: center;
+}
+
+.customToast {
+    --background: red;
+}
+
+.lod-error{
+    text-align: center;
+    margin-top: 50%;
+    color: red;
+}
+
+.scoure{
+    margin-top: 20px;
+    width: 135px;
+    padding: 8px;
+    background-color: #0ac5ce;
+    border-radius: 10px;
+    color: #fff;
+    margin-left: 15px;
+    text-align: center;
+}
+
+.question-title{
+    text-align: center;
+}
+
+.net{
+    width: 50%;
+    display: block;
+    margin: auto;
+    margin-top: 20%;
+}
+
+.page-assessment{
+    border: 1px solid #0ac5ce;
+    margin: 12px;
+    border-radius: 10px;
+}
+
+.note{
+    font-size: 15px;
+    font-weight: bold;
+    color: red;
+    padding: 8px;
+}
+
+.desc-title-about{
+    padding: 8px;
+    font-size: 15px;
+}
+
+.canvasjs-chart-credit{
+    display: none;
+}
+
+
+/* tooltip */
+.progress-tooltip {
+    position: relative;
+    padding-top: 50px;
+    margin-top: 20px;
+  }
+  .progress-tooltip .progress-tooltip-info {
+    align-items: center;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 2px #ccc;
+    color: #7856ff;
+    display: inline-flex;
+    font-family: sans-serif;
+    font-weight: bold;
+    justify-content: center;
+    height: 35px;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    text-align: center;
+    transform: translateX(calc(-50% - 5px));
+    width: 55px;
+  }
+  .progress-tooltip .progress-tooltip-info::before, .progress-tooltip .progress-tooltip-info::after {
+    content: "";
+    display: inline-block;
+    border: 7px solid transparent;
+    border-top-color: #eee;
+    position: absolute;
+    bottom: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .progress-tooltip .progress-tooltip-info::before {
+    border-width: 8px;
+    border-top-color: #ccc;
+    bottom: -16px;
+    left: 50%;
+  }
+  .progress-tooltip .progress-tooltip-info::after {
+    z-index: 1;
+  }
+  
+  .progress {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    font-family: sans-serif;
+    height: 10px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+  }
+  .progress::-webkit-progress-bar {
+    background-color: #ccc;
+  }
+  .progress::-webkit-progress-value {
+    border-radius: 5px;
+    background-color: #7856ff;
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 10px 10px;
+  }
+  .progress::-moz-progress-bar {
+    border-radius: 5px;
+    background-color: #7856ff;
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 10px 10px;
+  }
+  .progress::-ms-fill {
+    border-radius: 5px;
+    background-color: #7856ff;
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 10px 10px;
+    border: none;
+  }
+  .progress:indeterminate {
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-name: moveIndeterminate;
+    animation-timing-function: linear;
+    background-color: #ccc;
+    background-image: linear-gradient(to right, #7856ff 30%, #ccc 30%);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: 150% 150%;
+  }
+  .progress:indeterminate::-webkit-progress-value {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 10px 10px;
+  }
+  .progress:indeterminate::-webkit-progress-bar {
+    background-color: transparent;
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 10px 10px;
+  }
+  .progress:indeterminate::-moz-progress-bar {
+    background-color: transparent;
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 10px 10px;
+  }
+  @keyframes moveIndeterminate {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+  }
+  .wrapper-tooltip {
+    max-width: 280px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+  }

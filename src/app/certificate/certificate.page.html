@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="white" defaultHref="/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="back-title">
+      Certificate
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="Refresh" refreshingSpinner="lines-small">
+    </ion-refresher-content>
+  </ion-refresher>
+  
+  <div *ngIf="net == 'on'">
+
+      <div class="desc-title-about" *ngFor="let data of desc">
+          <p [innerHTML]="data.desc"></p>
+      </div>
+
+      <div class="wrapper-tooltip" *ngIf="allExam && allExam !== 0">
+        <h2 style="text-align: center;">Your Progress</h2>
+        <div class="progress-tooltip">
+            <span class="progress-tooltip-info" [ngStyle]="{ 'left': (myExam/allExam) * 100 + '%' }">{{myExam}}%</span>
+            <progress class="progress" value="{{myExam}}" max="{{allExam}}">{{myExam}}</progress>
+        </div>
+      </div>
+
+      <div *ngFor="let data of page" class="page-div-cer animated bounceInUp delay-0.5s" style="margin-bottom: 15px">
+        <div *ngIf="data.link_curriculum || data.id == 6">
+        <img class="img" src="../../assets/img/{{data.img}}" routerLink="/{{data.name |  slugify}}">
+        <p class="parent-icon-two" routerLink="/{{data.name |  slugify}}"> <i class="fas {{data.icon}}"></i></p>
+        <p class="title-images">{{data.name}}</p>
+        
+        <ion-button expand="block" fill="outline" [style.visibility]="(data.id != 6) ? 'visible' : 'hidden' " routerLink="/{{data.link_curriculum}}" class="cus-btn-cer">Curriculum</ion-button>
+        <ion-button expand="block" fill="outline" [style.visibility]="(data.id != 6) ? 'visible' : 'hidden' " routerLink="/{{data.link_exam}}" class="cus-btn-cer">Exam</ion-button>
+      </div>
+      </div>
+
+  </div>
+
+
+  <div *ngIf="net == 'off'">
+     <img src="../../assets/img/net.png" class="net">
+  </div>
+ 
+
+</ion-content>

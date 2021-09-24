@@ -1,0 +1,8 @@
+{
+  "name": "egncda",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

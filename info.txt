@@ -1,0 +1,177 @@
+import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ToastController, AlertController } from '@ionic/angular';
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { LoadingService } from '../services/loading.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-contact',
+  templateUrl: './contact.page.html',
+  styleUrls: ['./contact.page.scss'],
+})
+export class ContactPage implements OnInit {
+
+  ionicForm: FormGroup;
+  isSubmitted = false;
+
+  constructor(public http: HttpClient,
+    public formBuilder: FormBuilder,
+    public loading: LoadingService,
+    public toastController: ToastController, 
+    public alertController: AlertController,
+    private router :Router) { }
+
+    ngOnInit() {
+      this.ionicForm = this.formBuilder.group({
+        name: ['', [Validators.required]],
+        email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+        message: ['', [Validators.required]],
+      })  
+      
+    }
+
+    submitForm() {
+      this.isSubmitted = true;
+      if (!this.ionicForm.valid) {
+        return false;
+      } else {
+         
+        console.log(this.ionicForm.value);
+    
+        const headers = new HttpHeaders({
+          'enctype': 'multipart/form-data',
+          'Authorization': `Basic ${btoa('api:ec513d3ee758487c13a9f1bf591fd6aa-65b08458-c5fca03a')}`
+        });
+        
+        const formData = new FormData();
+        formData.append('from', 'scroll@elnourtech.com')
+        formData.append('to', 'egncdamedical@gmail.com');
+        formData.append('subject', 'Hello');
+        formData.append('text', 'This is cool !');    
+
+        this.http.post('https://api.mailgun.net/v3/sandbox698d83a643c547eeace391156dcaf574.mailgun.org/messages',formData,{headers})
+        .subscribe(
+          res => { //console.log('res : ', res); 
+          alert('goooooooooooooood' + res)
+        
+        },
+          err => { 
+            //console.log('err : ', err); 
+            alert('baaaaaaaaaaaaaaaaad' + err)
+        }
+        );
+
+      }
+    }
+
+    get net()
+    {
+      return LoadingService.net; 
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { Component, OnInit } from '@angular/core';
+import { HTTP } from '@ionic-native/http/ngx';
+import { ToastController, AlertController } from '@ionic/angular';
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { LoadingService } from '../services/loading.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-contact',
+  templateUrl: './contact.page.html',
+  styleUrls: ['./contact.page.scss'],
+})
+export class ContactPage implements OnInit {
+
+  ionicForm: FormGroup;
+  isSubmitted = false;
+
+  constructor(public http: HTTP,
+    public formBuilder: FormBuilder,
+    public loading: LoadingService,
+    public toastController: ToastController, 
+    public alertController: AlertController,
+    private router :Router) { }
+
+    ngOnInit() {
+      this.ionicForm = this.formBuilder.group({
+        name: ['', [Validators.required]],
+        email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+        message: ['', [Validators.required]],
+      })  
+      
+    }
+
+    submitForm() {
+      this.isSubmitted = true;
+      if (!this.ionicForm.valid) {
+        return false;
+      } else {
+         
+        console.log(this.ionicForm.value);
+  
+        let headers = {
+          'Authorization': `Basic ${btoa('api:ec513d3ee758487c13a9f1bf591fd6aa-65b08458-c5fca03a')}`,
+          'Access-Control-Allow-Origin':'*',
+          'Access-Control-Allow-Methods':'POST, GET, OPTIONS, PUT'
+        }
+
+        const formData = new FormData();
+        formData.append('from', 'scroll@elnourtech.com')
+        formData.append('to', 'egncdamedical@gmail.com');
+        formData.append('subject', 'Hello');
+        formData.append('text', 'This is cool !');   
+
+        this.http.sendRequest('https://api.mailgun.net/v3/sandbox698d83a643c547eeace391156dcaf574.mailgun.org/messages',
+        {
+          method: 'post',
+          data: formData,
+          headers: headers,
+        }
+      )
+        .then(response => {
+          // prints 200
+          alert('goooooooooooooood' + JSON.stringify(response))
+        })
+        .catch(err => {
+          alert('baaaaaaaaaaaaaaaaad' + JSON.stringify(err))
+          alert('baaaaaaaaaaaaaaaaad' + JSON.stringify(err.data))
+          alert('baaaaaaaaaaaaaaaaad' + err)
+        });
+
+      }
+    }
+
+    get net()
+    {
+      return LoadingService.net; 
+    }
+
+}
+
+
+
+
+[1:57 PM, 4/15/2020] Boli: Egncda@yahoo.com
+[1:57 PM, 4/15/2020] Boli: Egncda_12341234
+[2:49 PM, 4/15/2020] Boli: Egncdamedical@gmail.com
+[2:49 PM, 4/15/2020] Boli: Egncda_12341234
+@cxncxnzxjhfkjh_@&#

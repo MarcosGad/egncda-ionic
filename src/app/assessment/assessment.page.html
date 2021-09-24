@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="white" defaultHref="/medical"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="back-title">
+      Assessment
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="Refresh" refreshingSpinner="lines-small">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="net == 'on'">
+
+    <p class="note animated bounceInUp delay-0.5s">“Note:  Each Exam Will be taken for just one time … if you have any problem or enquiries please contact us”</p>
+    
+    <div *ngFor="let data of page | keyvalue" class="page-assessment animated bounceInUp delay-0.5s" (click)="openEx(data.value.id,data.value.title)">
+        <p class="title">{{data.value.title}}</p>
+    </div>
+    <p class="scoure" *ngIf="scoure">Scoure = {{scoure}}</p>
+
+    
+  </div>
+
+  <div *ngIf="net == 'off'">
+     <img src="../../assets/img/net.png" class="net">
+  </div>
+
+
+</ion-content>
